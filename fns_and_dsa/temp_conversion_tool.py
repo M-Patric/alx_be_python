@@ -1,27 +1,27 @@
 # temp_conversion_tool.py
 
 # Global conversion factors
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
+FREEZE_OFFSET = 32  # offset for conversion
 
 def convert_to_celsius(fahrenheit):
     """
-    Convert Fahrenheit to Celsius using the global factor:
-      C = (F - 32) * (5/9)
+    Convert Fahrenheit to Celsius using global factor.
+    C = (F - 32) * (5/9)
     """
-    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    return (fahrenheit - FREEZE_OFFSET) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 def convert_to_fahrenheit(celsius):
     """
-    Convert Celsius to Fahrenheit using the global factor:
-      F = C * (9/5) + 32
+    Convert Celsius to Fahrenheit using global factor.
+    F = C * (9/5) + 32
     """
-    return celsius * CELSIUS_TO_FAHRENHEIT_FACTOR + 32
+    return celsius * CELSIUS_TO_FAHRENHEIT_FACTOR + FREEZE_OFFSET
 
 def main():
-    # Validate numeric input
-    temp_str = input("Enter the temperature to convert: ").strip()
     try:
+        temp_str = input("Enter the temperature to convert: ").strip()
         temp_val = float(temp_str)
     except ValueError:
         raise ValueError("Invalid temperature. Please enter a numeric value.")

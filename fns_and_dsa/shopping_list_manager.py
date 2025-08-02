@@ -46,7 +46,7 @@ def main():
         elif choice == 3:
             # View the list
             if shopping_list:
-                print("\nYour Shopping List:")
+                print("Your Shopping List:")
                 for idx, itm in enumerate(shopping_list, start=1):
                     print(f"  {idx}. {itm}")
             else:
